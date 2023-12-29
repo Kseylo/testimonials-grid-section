@@ -114,10 +114,11 @@ body {
 main {
     min-height: 100dvh;
     margin: 4rem 1rem;
+    display: grid;
+    gap: 1.5rem;
 }
 
 .card {
-    background: $moderate-violet;
     border-radius: 0.5rem;
     padding: 2rem;
     display: grid;
@@ -126,7 +127,6 @@ main {
         width: 2.5rem;
         height: 2.5rem;
         border-radius: 50%;
-        border: 0.2rem solid lighten($moderate-violet, 10%);
     }
 
     &__header {
@@ -136,23 +136,99 @@ main {
     }
 
     &__name {
-        color: $white;
         font-weight: 500;
     }
 
     &__status {
-        color: transparentize($white, 0.5);
     }
     &__content {
         display: grid;
         gap: 1rem;
     }
     &__title {
-        color: $white;
         font-size: 1.25rem;
     }
     &__text {
-        color: transparentize($white, 0.7);
         font-size: 0.875rem;
+    }
+    //Specified styles
+    // Violet
+    &--violet {
+        background: $moderate-violet;
+        background-image: url('assets/images/bg-pattern-quotation.svg');
+        background-position-x: 90%;
+        background-repeat: no-repeat;
+        .card__avatar {
+            border: 0.2rem solid lighten($moderate-violet, 10%);
+        }
+        .card__name {
+            color: $white;
+        }
+        .card__status {
+            color: transparentize($white, 0.5);
+        }
+        .card__title {
+            color: $white;
+        }
+        .card__text {
+            color: transparentize($white, 0.5);
+        }
+    }
+
+    // Grayish blue
+    &--grayish {
+        background: $very-dark-grayish-blue;
+        .card__avatar {
+            border: 0.2rem solid $very-dark-grayish-blue;
+        }
+        .card__name {
+            color: $white;
+        }
+        .card__status {
+            color: transparentize($white, 0.5);
+        }
+        .card__title {
+            color: $white;
+        }
+        .card__text {
+            color: transparentize($white, 0.5);
+        }
+    }
+
+    &--white {
+        background: $white;
+        .card__avatar {
+            border: 0.2rem solid $white;
+        }
+        .card__name {
+            color: $very-dark-grayish-blue;
+        }
+        .card__status {
+            color: transparentize($very-dark-grayish-blue, 0.3);
+        }
+        .card__title {
+            color: $very-dark-grayish-blue;
+        }
+        .card__text {
+            color: transparentize($very-dark-grayish-blue, 0.3);
+        }
+    }
+    &--blackish {
+        background: $very-dark-blackish-blue;
+        .card__avatar {
+            border: 0.2rem solid $moderate-violet;
+        }
+        .card__name {
+            color: $white;
+        }
+        .card__status {
+            color: transparentize($white, 0.3);
+        }
+        .card__title {
+            color: $white;
+        }
+        .card__text {
+            color: transparentize($white, 0.3);
+        }
     }
 }
