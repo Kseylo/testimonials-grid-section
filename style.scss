@@ -119,15 +119,15 @@ main {
     display: grid;
     gap: 1.5rem;
     max-width: 80rem;
-
     @include tablet() {
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(3, min-content);
     }
     @include desktop() {
+        margin: 0;
+        align-content: center;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(2, min-content);
-        margin: 4rem 0;
     }
 }
 
