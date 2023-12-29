@@ -109,6 +109,8 @@ $light-grayish-blue: hsl(210, 46%, 95%);
 
 body {
     background-color: $light-grayish-blue;
+    display: grid;
+    place-content: center;
 }
 
 main {
@@ -116,6 +118,17 @@ main {
     margin: 4rem 1rem;
     display: grid;
     gap: 1.5rem;
+    max-width: 80rem;
+
+    @include tablet() {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, min-content);
+    }
+    @include desktop() {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, min-content);
+        margin: 4rem 0;
+    }
 }
 
 .card {
@@ -152,12 +165,42 @@ main {
         font-size: 0.875rem;
     }
     //Specified styles
+    @include tablet() {
+        &:nth-child(1) {
+            grid-column: span 2;
+        }
+        &:nth-child(4) {
+            grid-column: span 2;
+        }
+        &:nth-child(5) {
+            grid-column: span 2;
+        }
+    }
+
+    @include desktop() {
+        &:nth-child(1) {
+            grid-column: span 2;
+        }
+        &:nth-child(4) {
+            grid-column: span 2;
+        }
+        &:nth-child(5) {
+            grid-column-start: 4;
+            grid-column-end: 5;
+            grid-row-start: 1;
+            grid-row-end: -1;
+        }
+    }
     // Violet
     &--violet {
         background: $moderate-violet;
         background-image: url('assets/images/bg-pattern-quotation.svg');
         background-position-x: 90%;
         background-repeat: no-repeat;
+
+        @include tablet() {
+            background-position-x: 85%;
+        }
         .card__avatar {
             border: 0.2rem solid lighten($moderate-violet, 10%);
         }
